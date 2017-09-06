@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd      
+	 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+ 	">
+ 	
+ 	
+	<!-- consumer application name -->
+	<dubbo:application name="bpcs-web-consumer" />
+	<dubbo:consumer timeout="200000" check="false" retries="0" />
+	<dubbo:registry address="${zookeeper.address}" />
+	
+	<!-- 核心2.0 的zookeeper -->
+	<dubbo:registry id="bpepZookeeper" address="${zookeeper.bepe.address}" />
+	
+	<!-- 监控数据接口 -->
+	<dubbo:reference id="monitorService" interface="com.bestpay.bpcs.monitor.api.service.MonitorService" />
+	<!-- 监控定义接口 -->
+	<dubbo:reference id="monitorConfigService" interface="com.bestpay.bpcs.monitor.api.service.MonitorConfigService" />
+	<!-- 监控模板接口 -->
+	<dubbo:reference id="monitorTemplateService" interface="com.bestpay.bpcs.monitor.api.service.MonitorTemplateService" />
+	<!-- 监控人员接口 -->
+	<dubbo:reference id="monitorStaffService" interface="com.bestpay.bpcs.monitor.api.service.MonitorStaffService" />
+	<!-- 监控通知人员关系接口 -->
+	<dubbo:reference id="monitorNoticerealService" interface="com.bestpay.bpcs.monitor.api.service.MonitorNoticerealService" />
+
+	<!--核心接口 -->
+	<dubbo:reference id="checkDataBankService" interface="com.bestpay.bpcs.core.api.service.ICheckDataBankService" />
+	<dubbo:reference id="checkDataEbkService" interface="com.bestpay.bpcs.core.api.service.ICheckDataEbkService" />
+	<dubbo:reference id="checkDataPeBankService" interface="com.bestpay.bpcs.core.api.service.ICheckDataPeebkService" />
+	<dubbo:reference id="checkDataPeebkService" interface="com.bestpay.bpcs.core.api.service.ICheckDataPeBankService" />
+	<!-- 勾对请求接口 -->
+	<dubbo:reference id="checkRequestService" interface="com.bestpay.bpcs.core.api.service.CheckRequestService" />
+	<!-- 待勾对请求接口 -->
+	<dubbo:reference id="checkCheckaWaitService" interface="com.bestpay.bpcs.core.api.service.CheckCheckaWaitService" />
+	<!-- 平账接口 -->
+	<dubbo:reference id="dataMatchedService" interface="com.bestpay.bpcs.core.api.service.DataMatchedService" />
+	
+	<!-- 差异处理数据查询接口 -->
+	<dubbo:reference id="checkDataDiffService" interface="com.bestpay.bpcs.diff.api.service.CheckDataDiffService" />
+	<!-- 差异处理接口 -->
+	<dubbo:reference id="diffHandleService" interface="com.bestpay.bpcs.diff.api.service.DiffHandleService" />
+	<!-- 差异处理操作接口 -->
+	<dubbo:reference id="diffOperateService" interface="com.bestpay.bpcs.diff.api.service.DiffOperateService" />
+	<!-- 差异处理详情接口 -->
+	<dubbo:reference id="diffHandleDetailService" interface="com.bestpay.bpcs.diff.api.service.DiffHandleDetailService" />
+	
+	
+
+	<!-- 商户基础信息接口 -->
+	<dubbo:reference id="partnerBaseService" interface="com.bestpay.bpcs.merchant.api.service.PartnerBaseService" />
+	<!-- 商户信息结算接口 -->
+	<dubbo:reference id="settleConfigService" interface="com.bestpay.bpcs.merchant.api.service.SettleConfigService" />
+	<!-- 商户属性信息接口 -->
+	<dubbo:reference id="partnerAttrService" interface="com.bestpay.bpcs.merchant.api.service.PartnerAttrService" />
+	
+	<!-- 前置接口 -->
+	<dubbo:reference id="beVerificationDataService" interface="com.bestpay.bpcs.inf.api.service.BeVerificationDataService" />
+	<dubbo:reference id="fileFieldService" interface="com.bestpay.bpcs.inf.api.service.FileFieldService" />
+	<dubbo:reference id="fileFormatService" interface="com.bestpay.bpcs.inf.api.service.FileFormatService" />
+	<dubbo:reference id="fileProcessDetailService" interface="com.bestpay.bpcs.inf.api.service.FileProcessDetailService" />
+	<dubbo:reference id="fileProcessRequestService" interface="com.bestpay.bpcs.inf.api.service.FileProcessRequestService" />
+    <dubbo:reference id="impdataBankService" interface="com.bestpay.bpcs.inf.api.service.ImpdataBankService" />
+	<dubbo:reference id="impdataEbkService" interface="com.bestpay.bpcs.inf.api.service.ImpdataEbkService" />
+	<dubbo:reference id="impdataPebankService" interface="com.bestpay.bpcs.inf.api.service.ImpdataPebankService" />
+	<dubbo:reference id="impdataPeebkService" interface="com.bestpay.bpcs.inf.api.service.ImpdataPeebkService" />
+	<dubbo:reference id="fileDecompressionService" interface="com.bestpay.bpcs.inf.api.service.FileDecompressionService" />
+	<dubbo:reference id="dataImportEndpoint" interface="com.bestpay.bpcs.inf.api.service.DataImportEndpointService" />
+	<dubbo:reference id="importDataCheck" interface="com.bestpay.bpcs.inf.api.service.ImportDataCheckService" />
+	<!-- 文件传输配置接口 -->
+	<dubbo:reference id="fileConfigService" interface="com.bestpay.bpcs.transfer.api.service.FileConfigService" />
+	<dubbo:reference id="fileNameService" interface="com.bestpay.bpcs.transfer.api.service.FileNameService" />
+	<dubbo:reference id="fileTransferService" interface="com.bestpay.bpcs.transfer.api.service.FileTransferService" />
+	<dubbo:reference id="fileManageService" interface="com.bestpay.bpcs.transfer.api.service.FileManageService" />
+	<!-- 报表相关接口 -->
+	<dubbo:reference id="reportService" interface="com.bestpay.bpcs.report.api.service.ReportService" />
+	<!-- 收款表接口 -->
+	<dubbo:reference id="repCollectionService" interface="com.bestpay.bpcs.report.api.service.RepCollectionService" />
+	<!-- 结算表接口 -->
+	<dubbo:reference id="repSettlementService" interface="com.bestpay.bpcs.report.api.service.RepSettlementService" />
+	<!-- 付款表接口 -->
+	<dubbo:reference id="repPaymentService" interface="com.bestpay.bpcs.report.api.service.RepPaymentService" />
+
+	<!-- 根据调账报表ID,查询报表数据的接口  -->
+	<dubbo:reference id="reportDataService" interface="com.bestpay.bpcs.report.api.service.ReportDataService" />
+	<!-- 付款结果表接口 -->
+	<dubbo:reference id="repPayApplyInfoService" interface="com.bestpay.bpcs.report.api.service.RepPayApplyInfoService" />
+
+	<!-- 文件推送配置接口 -->
+	
+	
+	<dubbo:reference id="tcscTempletService" interface="com.bestpay.bpcs.filepush.api.service.TcscTempletService" />
+	<dubbo:reference id="tcscCapitalDirectionService" interface="com.bestpay.bpcs.filepush.api.service.TcscCapitalDirectionService" />
+	<dubbo:reference id="tcscDelivconfService" interface="com.bestpay.bpcs.filepush.api.service.TcscDelivconfService" />
+
+	<dubbo:reference id="tcscApplyconfService" interface="com.bestpay.bpcs.filepush.api.service.TcscApplyconfService" />
+	<dubbo:reference id="tccsmDelivtaskService" interface="com.bestpay.bpcs.filepush.api.service.TCcsmDelivtaskService" />
+	<!-- 付款管理文件处理接口 -->
+	<dubbo:reference id="repFileRecordService" interface="com.bestpay.bpcs.report.api.service.RepFileRecordService" />
+	<!-- 付款商户属性配置接口 -->
+	<dubbo:reference id="reportMerchConfigService" interface="com.bestpay.bpcs.report.api.service.ReportMerchConfigService" />
+	<!-- 稽核管理文件处理接口 -->
+	<dubbo:reference id="audFileRecordService" interface="com.bestpay.bpcs.report.api.service.AudFileRecordService" />
+	<!-- 稽核管理文件数据接口 -->
+	<dubbo:reference id="audRptRecordService" interface="com.bestpay.bpcs.report.api.service.AudRptRecordService" />
+	<!-- 2.0企业账户商户服务费月度调整表 -->
+	<dubbo:reference id="repCommifeeService" interface="com.bestpay.bpcs.report.api.service.RepCommifeeService" />
+	<!-- 备付金管理接口 -->
+	<dubbo:reference id="repProvisionsService" interface="com.bestpay.bpcs.report.api.service.RepProvisionsService" />
+	<!-- 支付核心 -->
+	<dubbo:reference id="feeSettleService" interface="com.bestpay.pgw.service.feeSettle.FeeSettleService" registry="bpepZookeeper" version="1.0.0"/>
+</beans>
