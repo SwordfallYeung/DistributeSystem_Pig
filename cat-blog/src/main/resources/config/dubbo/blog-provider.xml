@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+
+
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+       default-lazy-init="false">
+
+    <!-- consumer application name -->
+    <dubbo:application name="cat-blog"/>
+
+    <!-- registry address, used for consumer to discover services -->
+    <dubbo:registry address="${zookeeper.address}" id="cat"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.service.port}"/>
+    <!-- Web接口 -->
+    <dubbo:service interface="com.zs.cat.blog.api.service.BlogService" ref="blogService" registry="cat"/>
+    <!-- <dubbo:service interface="com.cat.zs.filepush.api.service.FileNameService" ref="fileNameService" registry="zs"/>
+    <dubbo:service interface="com.cat.zs.filepush.api.service.FileTransferService" ref="fileTransferService" registry="zs"/>
+    <dubbo:service interface="com.cat.zs.filepush.api.service.FileManageService" ref="fileManageService" registry="zs"/> -->
+</beans>
+
