@@ -34,24 +34,24 @@ public class CmsArticle extends BaseEntity {
 	}
 
 	private String color;
-	private String moreimage;
-	private String categoryname;
+//	private String moreimage;
+//	private String categoryname;
 	
-	public String getCategoryname() {
-		return this.getString("categoryname");
-	}
+//	public String getCategoryname() {
+//		return this.getString("categoryname");
+//	}
 
-	public void setCategoryname(String categoryname) {
-		this.set("categoryname", categoryname);
-	}
+//	public void setCategoryname(String categoryname) {
+//		this.set("categoryname", categoryname);
+//	}
 	
-	public String getMoreimage() {
-		return this.getString("moreimage");
-	}
+//	public String getMoreimage() {
+//		return this.getString("moreimage");
+//	}
 
-	public void setMoreimage(String moreimage) {
-		this.set("moreimage", moreimage);
-	}
+//	public void setMoreimage(String moreimage) {
+//		this.set("moreimage", moreimage);
+//	}
 	public String getColor() {
 		return this.getString("color");
 	}
@@ -160,15 +160,15 @@ public class CmsArticle extends BaseEntity {
 		this.set("weight", weight);
 	}
 
-	private Long siteid;
+//	private Long siteid;
 
-	public Long getSiteid() {
-		return this.getLong("siteid");
-	}
+//	public Long getSiteid() {
+//		return this.getLong("siteid");
+//	}
 
-	public void setSiteid(Long siteid) {
-		this.set("siteid", siteid);
-	}
+//	public void setSiteid(Long siteid) {
+//		this.set("siteid", siteid);
+//	}
 	private Long categoryId;
 
 	public Long getCategoryId() {

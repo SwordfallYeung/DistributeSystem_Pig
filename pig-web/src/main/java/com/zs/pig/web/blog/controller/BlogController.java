@@ -49,7 +49,6 @@ public class BlogController {
 	
 	/**
 	 * 添加或更新区域
-	 * @param params
 	 * @return
 	 * @throws Exception 
 	 */
@@ -59,9 +58,9 @@ public class BlogController {
 		Blog.setReleasedate(new Date());
 		Blog.setReplyhit(0);
 		Blog.setClickhit(0);
-		Blog.setBloggerId(1L);
-		Blog.setTypeid(Long.parseLong(Blog.getTypename().split(",")[0]));
-		Blog.setTypename(Blog.getTypename().split(",")[1]);
+//		Blog.setBloggerId(1L);
+//		Blog.setTypeid(Long.parseLong(Blog.getTypename().split(",")[0]));
+//		Blog.setTypename(Blog.getTypename().split(",")[1]);
 		String pictureSaveFilePath=ZsCatConstant.pictureSaveFilePath;
 		//=request.getRealPath("ZSCAT");
 		if (null != imgs && !imgs.isEmpty()) {
@@ -72,7 +71,7 @@ public class BlogController {
 				if (imgs.getOriginalFilename().lastIndexOf(".") >= 0) {
 					extName = imgs.getOriginalFilename().substring(imgs.getOriginalFilename().lastIndexOf("."));
 				}
-				Blog.setImg(id+extName);
+//				Blog.setImg(id+extName);
 				FileUtils.copyFile(imgs.getInputStream(), pictureSaveFilePath,id+extName).replaceAll("-", "");
 			
 			} catch (IOException e) {
@@ -87,7 +86,6 @@ public class BlogController {
 	
 	/**
 	 * 删除字典
-	* @param id
 	* @return
 	 */
 	@RequestMapping(value="delete",method=RequestMethod.POST)
@@ -97,7 +95,6 @@ public class BlogController {
 	
 	/**
 	 * 分页显示字典table
-	 * @param params
 	 * @return
 	 */
 	@RequestMapping(value = "list", method = RequestMethod.POST)

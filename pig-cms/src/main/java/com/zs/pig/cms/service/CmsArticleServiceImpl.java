@@ -39,7 +39,7 @@ public class CmsArticleServiceImpl extends ServiceMybatis<CmsArticle> implements
 	 * @return
 	 */
 	public int savecmsArticle(CmsArticle CmsArticle) {
-		CmsArticle.setSiteid(Long.parseLong(RedisUtils.get(ZsCatConstant.SITEID,"1")));
+//		CmsArticle.setSiteid(Long.parseLong(RedisUtils.get(ZsCatConstant.SITEID,"1")));
 		return this.save(CmsArticle);
 	}
 

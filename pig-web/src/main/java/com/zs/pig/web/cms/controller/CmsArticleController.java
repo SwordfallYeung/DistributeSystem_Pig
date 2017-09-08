@@ -55,7 +55,6 @@ public class CmsArticleController {
 	
 	/**
 	 * 添加或更新区域
-	 * @param params
 	 * @return
 	 */
 	@RequestMapping(value = "save", method = RequestMethod.POST)
@@ -95,7 +94,7 @@ public class CmsArticleController {
 					break;
 				}
 			}
-			CmsArticle.setMoreimage(imges);
+//			CmsArticle.setMoreimage(imges);
 			CmsArticle.setCreatedate(new Date());
 		    CmsArticleService.savecmsArticle(CmsArticle);
 			return "redirect:/index#/ajax/cmsArticle";
@@ -131,7 +130,6 @@ public class CmsArticleController {
 		}
 	/**
 	 * 删除字典
-	* @param id
 	* @return
 	 */
 	@RequestMapping(value="delete",method=RequestMethod.POST)
@@ -141,12 +139,12 @@ public class CmsArticleController {
 	
 	/**
 	 * 分页显示字典table
-	 * @param params
 	 * @return
 	 */
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	public String list(int pageNum,int pageSize,@ModelAttribute CmsArticle CmsArticle, Model model) {
-		CmsArticle.setSiteid(Long.parseLong(RedisUtils.get(ZsCatConstant.SITEID,"1")));
+//		String count = RedisUtils.get(ZsCatConstant.SITEID,"1");
+//		CmsArticle.setSiteid(Long.parseLong("1"));
 		PageInfo<CmsArticle> page = CmsArticleService.selectPage(pageNum, pageSize, CmsArticle,"createDate desc");
 		model.addAttribute("page", page);
 		return "cms/cmsArticle/cmsArticle-list";

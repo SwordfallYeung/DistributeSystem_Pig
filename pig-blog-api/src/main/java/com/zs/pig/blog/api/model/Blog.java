@@ -34,15 +34,15 @@ public class Blog extends BaseEntity {
 		this.blogType = blogType;
 	}
 
-	private String img;
+//	private String img;
 
-	public String getImg() {
-		return this.getString("img");
-	}
+//	public String getImg() {
+//		return this.getString("img");
+//	}
 
-	public void setImg(String img) {
-		this.set("img", img);
-	}
+//	public void setImg(String img) {
+//		this.set("img", img);
+//	}
 	
 	private static final long serialVersionUID = 1L;
 	private String title;
@@ -66,13 +66,13 @@ public class Blog extends BaseEntity {
 	private Long typeid;
 	public Long getTypeid() {return this.getLong("typeid");}
 	public void setTypeid(Long typeid) {this.set("typeid",typeid);}
-	private String typename;
-	public String getTypename() {return this.getString("typename");}
-	public void setTypename(String typename) {this.set("typename",typename);}
+//	private String typename;
+//	public String getTypename() {return this.getString("typename");}
+//	public void setTypename(String typename) {this.set("typename",typename);}
 	
-	private Long bloggerId;
-	public Long getBloggerId() {return this.getLong("bloggerId");}
-	public void setBloggerId(Long bloggerId) {this.set("bloggerId",bloggerId);}
+//	private Long bloggerId;
+//	public Long getBloggerId() {return this.getLong("bloggerId");}
+//	public void setBloggerId(Long bloggerId) {this.set("bloggerId",bloggerId);}
 	private String keyword;
 	public String getKeyword() {return this.getString("keyword");}
 	public void setKeyword(String keyword) {this.set("keyword",keyword);}
@@ -103,7 +103,7 @@ public class Blog extends BaseEntity {
 	public void setImagesList(List<String> imagesList) {
 		this.imagesList = imagesList;
 	}
-	private Integer state;
-	public Integer getState() {return this.getInteger("state");}
-	public void setState(Integer state) {this.set("state",state);}
+//	private Integer state;
+//	public Integer getState() {return this.getInteger("state");}
+//	public void setState(Integer state) {this.set("state",state);}
 }
