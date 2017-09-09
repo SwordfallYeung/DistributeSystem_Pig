@@ -7,27 +7,17 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		
-		<!-- <module>pig-schedule</module> -->
-		<!-- <module>pig-mall</module> <module>pig-mall-api</module> <module>pig-mall-portl</module>  -->
-		
+
 		<module>pig-common</module>
 		<module>pig-base</module>
 		<module>pig-base-api</module>
 		<module>pig-cms</module>
 		<module>pig-cms-api</module>
-		
-		<!-- <module>pig-cms-portl</module> -->
-		
+
 		<module>pig-blog</module>
 		<module>pig-blog-api</module>
-		
-		<!-- <module>pig-search</module>
-		<module>pig-sso</module> -->
-		<!-- <module>pig-api</module> -->
-		<module>pig-web</module> 
-		<!-- <module>pig-web-plus</module>
-		<module>pig-web-meizi</module>  -->
+
+		<module>pig-web</module>
 		<!-- <module>pig-test</module>  -->
 	</modules>
 	<name>pig</name>

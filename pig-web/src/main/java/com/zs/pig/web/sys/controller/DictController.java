@@ -30,7 +30,6 @@ public class DictController {
 	
 	/**
 	 * 添加或更新区域
-	 * @param params
 	 * @return
 	 */
 	@RequestMapping(value = "save", method = RequestMethod.POST)
